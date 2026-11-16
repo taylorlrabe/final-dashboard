@@ -1,0 +1,23 @@
+---
+title: "Final Project"
+author: "Evan Kaiser"
+date: "2026-11-16"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+here's a link for the tidy data
+
+https://raw.githubusercontent.com/jadeynryan/orcas/refs/heads/master/data-raw/cwr_tidy.csv
+
+potential figures - tracking a pod
+                    Sightings per vessel - Patrick
+                    heat map of orca territories by season - Taylor
+                    
+assignments - interactive figure - Madeline
+              2 other figures - Evan, Patrick, Taylor
+              text block and flexdashboard layout - Evan, Patrick
+              
