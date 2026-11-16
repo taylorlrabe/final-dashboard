@@ -16,3 +16,5 @@ orca <- read_csv("data/orcas.csv")
 # Ideas for data: Vessels observations/time at sea, locations observations (maps),
 # specific pods, pod density
 
+# My Job: Text explaining data and obs per vessel/time?  
+
