@@ -43,7 +43,7 @@ orcas_clean2 <- orcas %>%
          northern = str_detect(pods_clean, "northern"),
          J = !biggs & str_detect(pods_clean, "\\bj"),
          K = !biggs & str_detect(pods_clean, "\\bk"),
-         L = !biggs & str_detect(pods_clean, "\\bl")) %>%
+         L  = !biggs & str_detect(pods_clean, "\\bl")) %>%
   mutate(`Bigg's (transients)` = biggs,
          `Northern Residents` = northern) %>%
   select(-biggs, -northern) %>%
@@ -57,7 +57,7 @@ plot2 <- orcas_clean2 %>%
   count(year, pod) %>%
   ggplot(aes(x = year, y = n, fill = pod)) +
   geom_col() +
-  labs(x = "Year", y = "Number of encounters", fill = "Ecotype (Pod)", 
+  labs(x = "Year", y = "Number of encounters", fill = "Pod", 
        title = "Encounters per year per pod") + 
   theme_minimal()
 
