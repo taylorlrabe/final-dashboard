@@ -14,5 +14,5 @@ orca <- read_csv("data/orcas.csv")
 # widely down the coast; currently around 33 individuals.
 
 # Ideas for data: Vessels observations/time at sea, locations observations (maps),
-# specific pods, pod density,  
+# specific pods, pod density
 
