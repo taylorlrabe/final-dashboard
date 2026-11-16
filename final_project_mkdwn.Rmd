@@ -14,8 +14,10 @@ here's a link for the tidy data
 https://raw.githubusercontent.com/jadeynryan/orcas/refs/heads/master/data-raw/cwr_tidy.csv
 
 potential figures - tracking a pod
-                    Sightings per vessel
-                    heat map of orca territories by season
+                    Sightings per vessel - Patrick
+                    heat map of orca territories by season - Taylor
                     
-assignments - figures
-              flexdashboard layout
+assignments - interactive figure - Madeline
+              2 other figures - Evan, Patrick, Taylor
+              text block and flexdashboard layout - Evan, Patrick
+              
