@@ -13,7 +13,7 @@ orcas <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday
 #3+ output panes	At least three figures or tables, not counting the text block
 #1+ interactive	At least one pane people can hover over, zoom, click or search, built with an “htmlwidget” package
 
-#cleaning data into Southern Residents, Northern Residents, or Biggs 
+#cleaning data into Southern Residents, Northern Residents, or Biggs using reg expression
 orcas_clean <- orcas %>%
   mutate(ecotype = case_when(
     str_detect(pods_or_ecotype, regex("bigg|ransient|ca/u|ca's|^t\\d", ignore_case = TRUE)) ~ "Bigg's (transient)",
@@ -28,7 +28,7 @@ plot1 <- orcas_clean %>%
   count(year,ecotype) %>% 
   ggplot(aes(x = year, y = n, fill = ecotype)) +
   geom_col() +
-  labs(x = "Year", y = "Number of encounters", fill = "Ecotype (Pod)", 
+  labs(x = "Year", y = "Number of encounters", fill = "Pod", 
        title = "Encounters per year per pod") + 
   theme_minimal()
 
