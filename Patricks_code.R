@@ -1,8 +1,5 @@
 library(tidyverse)
 
-
-orca <- read_csv("data/orcas.csv")
-
 # Ecotypes: 
 # J Pod: Spends the most time in the inner waters of Puget Sound and the Salish 
 # Sea; currently around 28 individuals.
@@ -17,3 +14,4 @@ orca <- read_csv("data/orcas.csv")
 # specific pods, pod density
 
 # My Job: Text explaining data and obs per vessel/time?  
+
