@@ -28,8 +28,8 @@ plot1 <- orcas_clean %>%
   count(year,ecotype) %>% 
   ggplot(aes(x = year, y = n, fill = ecotype)) +
   geom_col() +
-  labs(x = "Year", y = "Number of encounters", fill = "Pod", 
-       title = "Encounters per year per pod") + 
+  labs(x = "Year", y = "Number Of Encounters", fill = "Pod", 
+       title = "Encounters Per Year Per Pod") + 
   theme_minimal()
 
 plot1
@@ -57,8 +57,8 @@ plot2 <- orcas_clean2 %>%
   count(year, pod) %>%
   ggplot(aes(x = year, y = n, fill = pod)) +
   geom_col() +
-  labs(x = "Year", y = "Number of encounters", fill = "Pod", 
-       title = "Encounters per year per pod") + 
+  labs(x = "Year", y = "Number Of Encounters", fill = "Pod", 
+       title = "Encounters Per Year Per Pod") + 
   theme_minimal()
 
 plot2
