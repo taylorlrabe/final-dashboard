@@ -35,3 +35,23 @@ ggplot(vessel_rates,
     y = "Encounters per Recorded Hour") +
   theme_minimal()
 
+
+vessel_year_rates <- orcas_clean %>%
+  group_by(year, vessel) %>%
+  summarize(encounters = n(),
+    total_hours = sum(duration_hours),
+    encounter_rate = encounters / total_hours,
+    .groups = "drop") %>%
+  filter(encounters >= 5)
+
+ggplot(vessel_year_rates,
+       aes(x = factor(year),
+           y = encounter_rate,
+           fill = vessel)) +
+  geom_col(position = "dodge") +
+  labs(title = "Orca Encounter Rates by Vessel and Year",
+    x = "Year",
+    y = "Encounters per Recorded Encounter-Hour",
+    fill = "Vessel") +
+  theme_minimal()
+
