@@ -95,8 +95,7 @@ vessel_year_rates <- orcas_clean %>%
   )
 
 
-
-ggplot(vessel_year_rates,
+fig_2_yearly_observations <- ggplot(vessel_year_rates,
        aes(x = factor(year),
            y = observation_rate,
            fill = vessel_name)) +
