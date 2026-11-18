@@ -75,6 +75,7 @@ fig_1_encounter_rate<-ggplot(vessel_rates,
   theme_minimal()
 
 
+
 vessel_year_rates <- orcas_clean %>%
   pivot_longer(
     cols = c(Mike1, Orcinus, Chimo, Morning_Star,
@@ -90,23 +91,23 @@ vessel_year_rates <- orcas_clean %>%
     observations = n(),
     total_hours = sum(duration_hours),
     observation_rate = observations / total_hours,
-    .groups = "drop")
+    .groups = "drop"
+  )
 
 
 
-vessel_year_rates <- vessel_year_rates %>%
-  pivot_longer(
-    cols = c(Mike1, Orcinus, Chimo, Morning_Star,
-             Shachi, KCB_III, Orca),
-    names_to = "vessel_name",
-    values_to = "present") %>%
-  filter(present == 1,
-         !is.na(total_hours),
-         total_hours > 0) %>%
-  group_by(year, vessel_name) %>%
-  summarize(observations = n(),
-    total_hours = sum(total_hours),
-    observation_rate = observations / total_hours,
-    .groups = "drop")
+ggplot(vessel_year_rates,
+       aes(x = factor(year),
+           y = observation_rate,
+           fill = vessel_name)) +
+  geom_col(position = "dodge", color = "black") +
+  labs(
+    title = "Orca Observation Rates by Vessel and Year",
+    x = "Year",
+    y = "Observations per Recorded Encounter-Hour",
+    fill = "Vessel") +
+  theme_minimal()
+
+
 
 
