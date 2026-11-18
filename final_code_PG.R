@@ -17,11 +17,11 @@ orcas_clean <- orcas %>%
 # encounter rates by vessel
  vessel_rates <- orcas_clean %>%
   group_by(vessel) %>%
-  summarize(
-    encounters = n(),
+  summarize(encounters = n(),
     total_hours = sum(duration_hours),
     encounter_rate = encounters / total_hours,
     .groups = "drop") %>%
+   filter(encounters >= 10)%>%
   arrange(desc(encounter_rate))
 
 # figure
@@ -34,3 +34,4 @@ ggplot(vessel_rates,
     x = "Research Vessel",
     y = "Encounters per Recorded Hour") +
   theme_minimal()
+
