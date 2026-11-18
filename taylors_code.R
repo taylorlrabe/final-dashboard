@@ -42,3 +42,21 @@ plot1 <- orcas_clean %>%
   theme_minimal()
 
 plot1
+
+#need to commit + push
+
+library(leaflet)
+
+pod_colors <- colorFactor("Set1", domain = orcas_clean$pod)
+
+orcas_clean %>%
+  filter(!is.na(begin_latitude), !is.na(begin_longitude)) %>%
+  leaflet() %>%
+  addTiles() %>%
+  addCircleMarkers(lng = ~begin_longitude, lat = ~begin_latitude,
+                   color = ~pod_colors(pod), radius = 4, stroke = FALSE,
+                   fillOpacity = 0.6,
+                   popup = ~paste0(pod, " pod<br>", date)) %>%
+  addLegend(pal = pod_colors, values = ~pod, title = "Pods")
+
+
