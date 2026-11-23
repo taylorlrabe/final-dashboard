@@ -60,3 +60,34 @@ orcas_clean %>%
   addLegend(pal = pod_colors, values = ~pod, title = "Pods")
 
 
+library(lubridate)
+
+orcas_dates <- orcas %>%
+  
+  # make sure it's a date  
+  mutate(date  = ymd(date),                              
+    year  = year(date),
+    month = month(date, label = TRUE, abbr = TRUE)) %>%
+  
+  # drop rows with no date
+  filter(!is.na(date))                            
+
+# count encounters for each year and month
+orca_counts <- orcas_dates %>%
+  count(year, month) %>%
+  
+  # fill months with no encounters as 0  
+  complete(year, month, fill = list(n = 0)) 
+
+# make heatmap
+ggplot(orca_counts, aes(x = month, y = factor(year), fill = n)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = n), size = 3) +
+  scale_fill_gradient(low = "purple", high = "orange", name = "Encounters") +
+  labs(
+    title = "All Orca Encounters by Month",
+    subtitle = "Center for Whale Research, 2017–2024",
+    x = "Month",
+    y = "Year") +
+  theme_minimal()
+
